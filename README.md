@@ -4,6 +4,7 @@
 [image2]: https://user-images.githubusercontent.com/10624937/42135622-e55fb586-7d12-11e8-8a54-3c31da15a90a.gif "Soccer"
 [image3]: https://openai.com/content/images/2017/06/nipsdiagram_2.gif
 [image4]: https://nervanasystems.github.io/coach/_images/ddpg.png
+[image5]: record.png
 
 # Project 3: Collaboration and Competition
 
@@ -79,34 +80,22 @@ Network size:
 <p> it converges quite slow at very begining, but would be very fast at last.
     
 ```
-Episode 100	Average Score: 0.010	
-Episode 200	Average Score: 0.013	
-Episode 300	Average Score: 0.008	
-Episode 400	Average Score: 0.033	
-Episode 500	Average Score: 0.086	
-Episode 600	Average Score: 0.090	
-Episode 700	Average Score: 0.092	
-Episode 800	Average Score: 0.097	
-Episode 900	Average Score: 0.108	
-Episode 1000	Average Score: 0.117	
-Episode 1100	Average Score: 0.136	
-Episode 1200	Average Score: 0.137	
-Episode 1300	Average Score: 0.174	
-Episode 1400	Average Score: 0.239	
-Episode 1500	Average Score: 0.352	
-Finished at Episode 1510	Reach Average Score: 0.506!
 
+Episode 100	Average Score: 0.019	Max Score: 0.10
+Episode 200	Average Score: 0.010	Max Score: 0.10
+Episode 300	Average Score: 0.010	Max Score: 0.10
+Episode 400	Average Score: 0.020	Max Score: 0.10
+Episode 500	Average Score: 0.000	Max Score: 0.00
+Episode 600	Average Score: 0.077	Max Score: 0.20
+Episode 700	Average Score: 0.078	Max Score: 0.10
+Episode 800	Average Score: 0.118	Max Score: 0.20
+Episode 900	Average Score: 0.130	Max Score: 0.400
+Episode 1000	Average Score: 0.170	Max Score: 0.40
+Episode 1200	Average Score: 0.310	Max Score: 0.700
+
+Finished at Episode 1256	Reach Average Score: 1.078!
 ```
-
-And then I found the play is really bad, so I continue train the model to 1.0
-
-```
-Episode 100	Average Score: 0.038	Max Score: 0.20
-Episode 200	Average Score: 0.373	Max Score: 2.60
-Finished at Episode 246	Reach Average Score: 1.020!
-
-```
-
+![DDPG][image5]
     
 ##### 5.	Interesting observations:
     <p> For sharing the intermedia information among agents, I see someone has done alternatively [3], rather than sharing the predicted action and next actions with actor_target and actor_local, he arbitrarily shared the actual action of the other agent as the predict action and next action as input to the critic.
