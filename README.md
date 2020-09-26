@@ -81,19 +81,33 @@ Network size:
     
 ```
 
+Episode 50	Average Score: 0.000	Max Score: 0.00
 Episode 100	Average Score: 0.019	Max Score: 0.10
+Episode 150	Average Score: 0.030	Max Score: 0.10
 Episode 200	Average Score: 0.010	Max Score: 0.10
+Episode 250	Average Score: 0.040	Max Score: 0.10
 Episode 300	Average Score: 0.010	Max Score: 0.10
+Episode 350	Average Score: 0.000	Max Score: 0.00
 Episode 400	Average Score: 0.020	Max Score: 0.10
+Episode 450	Average Score: 0.020	Max Score: 0.20
 Episode 500	Average Score: 0.000	Max Score: 0.00
+Episode 550	Average Score: 0.059	Max Score: 0.10
 Episode 600	Average Score: 0.077	Max Score: 0.20
+Episode 650	Average Score: 0.078	Max Score: 0.20
 Episode 700	Average Score: 0.078	Max Score: 0.10
+Episode 750	Average Score: 0.120	Max Score: 0.20
 Episode 800	Average Score: 0.118	Max Score: 0.20
+Episode 850	Average Score: 0.120	Max Score: 0.20
 Episode 900	Average Score: 0.130	Max Score: 0.400
+Episode 950	Average Score: 0.190	Max Score: 0.400
 Episode 1000	Average Score: 0.170	Max Score: 0.40
+Episode 1050	Average Score: 0.119	Max Score: 0.39
+Episode 1100	Average Score: 0.200	Max Score: 0.400
+Episode 1150	Average Score: 0.520	Max Score: 1.10
 Episode 1200	Average Score: 0.310	Max Score: 0.700
-
+Episode 1250	Average Score: 0.880	Max Score: 1.300
 Finished at Episode 1256	Reach Average Score: 1.078!
+
 ```
 ![DDPG][image5]
     
