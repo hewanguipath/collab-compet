@@ -2,7 +2,8 @@
 
 [image1]: https://video.udacity-data.com/topher/2018/May/5af7955a_tennis/tennis.png "Trained Agent"
 [image2]: https://user-images.githubusercontent.com/10624937/42135622-e55fb586-7d12-11e8-8a54-3c31da15a90a.gif "Soccer"
-
+[image3]: https://openai.com/content/images/2017/06/nipsdiagram_2.gif
+[image4]: https://nervanasystems.github.io/coach/_images/ddpg.png
 
 # Project 3: Collaboration and Competition
 
@@ -40,3 +41,65 @@ The environment is considered solved, when the average (over 100 episodes) of th
 ### Instructions
 
 Follow the instructions in `Tennis.ipynb` to get started with training your own agent!  
+
+
+1.	Define the Network:
+Structure: MA-DDPG
+I use 2 DDPG Agent, Delayed Deep Deterministic policy gradient in this practice. And share their “predict actions next”, and “predict actions”
+
+![DDPG][image4]
+
+Network size:
+<p> As the Vector Observation space size in this environment is 24 each, 24 x 2, action space size is 2 each, 2 x 2
+<p> So the Actor input as full status (1, 48), and output as full actions (1, 4), Critic input as full status (1, 48) and full action (1, 4), output as 1, the value
+<p> I have defined First hidden layer units as 256 and 2nd hidden layer as 128 for Actor, small enough to run in CPU with the balance of simplicity and efficiency.
+<p> For the Critic First hidden layer units as 256 and 2nd hidden layer as 128, 
+
+2.	Define the Replay Buffer:
+<p> Since the 2 agents observed different status and take different actions, so the reply buffer must be separated, so I linked 2 reply buffers for each. 
+<p> And I used a prioritized reply buffer, but not sum tree, takes N time rather than Log N to get random selections with prioritize and distribution. Hence, the size of the buffer should not be too long, so I take 1e5.
+<p> The buffer would be filled full around 600 episode, and then put with new episodes, which has better performance trajectories
+<p> In each step of the episodes, push the full states, concoction of status of both agents, full action, full next status, individual reward and done to the buffer.
+
+3.	Define the Agent:
+<p> 2 Levels of the Agent, DDPG agent, focus on basic DDPG algorithm, and a MADDPG agent which will coordinate data share between 2 DDPG agent.
+
+![MADDPG][image3]
+
+<p> Each Agent takes full status and full actions as input, actors will generate the Individual actions, and concatenate the generated action of the other agent, as input to the critic.
+<p> Exploration, I did not use epsilon-greedy, I have a random noise as the class example
+
+4.	Training the DDQN:
+<p> Due to the Network is bigger than 2 projects before, and share middle level info, requires additional feed forward calculation. Furthermore, priority reply buffer needs one more feed forward, and random sample with priority distribution. So the training takes much more time than previous projects. 
+
+<p> Max_Steps: 1001 as observed in the env, it will be finished in 1001
+<p> Skip_timesteps, 100, since very rare hit ball in the very begging. 
+<p> Random action generation, random normal distribution
+<p> Batch_size, 128 is sufficient , 256 would be too slow.
+<p> it converges quite slow at very begining, but would be very fast at last.
+    
+```
+Episode 100	Average Score: 0.010	
+Episode 200	Average Score: 0.013	
+Episode 300	Average Score: 0.008	
+Episode 400	Average Score: 0.033	
+Episode 500	Average Score: 0.086	
+Episode 600	Average Score: 0.090	
+Episode 700	Average Score: 0.092	
+Episode 800	Average Score: 0.097	
+Episode 900	Average Score: 0.108	
+Episode 1000	Average Score: 0.117	
+Episode 1100	Average Score: 0.136	
+Episode 1200	Average Score: 0.137	
+Episode 1300	Average Score: 0.174	
+Episode 1400	Average Score: 0.239	
+Episode 1500	Average Score: 0.352	
+Finished at Episode 1510	Reach Average Score: 0.506!ise: 0.0000
+
+```
+
+    
+5.	Interesting observations:
+    <p>For sharing the intermedia information among agents, I see someone has done alternatively [3], rather than sharing the predicted action and next actions with actor_target and actor_local, he arbitrarily shared the actual action of the other agent as the predict action and next action as input to the critic.
+
+With the way, the calculation would definitely less, according to his training record, it converges faster, but I can’t reproduce it, I had try his method, with switch “SHARE_ACTUAL_ACTION” in my code, seems very hard to converge at score around 0.3.
