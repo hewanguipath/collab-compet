@@ -112,5 +112,5 @@ Finished at Episode 1256	Reach Average Score: 1.078!
 ![DDPG][image5]
     
 ##### 5.	Interesting observations:
-    <p> For sharing the intermedia information among agents, I see someone has done alternatively [3], rather than sharing the predicted action and next actions with actor_target and actor_local, he arbitrarily shared the actual action of the other agent as the predict action and next action as input to the critic.
-    <p> With this way, the calculation would definitely less, according to his training record, it converges faster, but I can’t reproduce it, I had try his method, with switch “SHARE_ACTUAL_ACTION” in my code, seems very hard to converge at score around 0.3.
+   <p> For sharing the intermedia information among agents, I see someone has done alternatively [3], rather than sharing the predicted action and next actions with actor_target and actor_local, he arbitrarily shared the actual action of the other agent as the predict action and next action as input to the critic.
+   <p> With this way, the calculation would definitely less, according to his training record, it converges faster, but I can’t reproduce it, I had try his method, with switch “SHARE_ACTUAL_ACTION” in my code, seems very hard to converge at score around 0.3.
