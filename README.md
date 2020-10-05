@@ -107,7 +107,36 @@ Episode 1150	Average Score: 0.520	Max Score: 1.10
 Episode 1200	Average Score: 0.310	Max Score: 0.700
 Episode 1250	Average Score: 0.880	Max Score: 1.300
 Finished at Episode 1256	Reach Average Score: 1.078!
+```
 
+After changing prioritized reply with sumtree
+```
+Episode 50	Average Score: 0.029	Max Score: 0.10eps: 13.0000
+Episode 100	Average Score: 0.059	Max Score: 0.10eps: 30.0000
+Episode 150	Average Score: 0.073	Max Score: 0.10eps: 51.0000
+Episode 200	Average Score: 0.097	Max Score: 0.10eps: 29.0000
+Episode 250	Average Score: 0.095	Max Score: 0.30eps: 13.00000
+Episode 300	Average Score: 0.093	Max Score: 0.10eps: 29.0000
+Episode 350	Average Score: 0.105	Max Score: 0.20eps: 30.0000
+Episode 400	Average Score: 0.107	Max Score: 0.20eps: 30.0000
+Episode 450	Average Score: 0.109	Max Score: 0.20eps: 69.0000
+Episode 500	Average Score: 0.118	Max Score: 0.30eps: 69.00000
+Episode 550	Average Score: 0.143	Max Score: 0.30eps: 29.00000
+Episode 600	Average Score: 0.148	Max Score: 0.40eps: 30.00000
+Episode 650	Average Score: 0.146	Max Score: 0.40eps: 62.00000
+Episode 700	Average Score: 0.132	Max Score: 0.40eps: 165.0000
+Episode 750	Average Score: 0.182	Max Score: 1.10eps: 29.00000
+Episode 800	Average Score: 0.190	Max Score: 1.00eps: 51.00000
+Episode 850	Average Score: 0.254	Max Score: 0.90eps: 319.0000
+Episode 900	Average Score: 0.310	Max Score: 1.10eps: 108.0000
+Episode 950	Average Score: 0.338	Max Score: 1.30eps: 220.0000
+Episode 1000	Average Score: 0.402	Max Score: 1.30eps: 13.0000
+Episode 1050	Average Score: 0.660	Max Score: 1.30eps: 423.0000
+Episode 1100	Average Score: 0.697	Max Score: 1.30eps: 31.00000
+Episode 1150	Average Score: 0.760	Max Score: 1.40eps: 102.0000
+Episode 1200	Average Score: 0.940	Max Score: 1.40eps: 7.000000
+Episode 1250	Average Score: 0.884	Max Score: 1.40eps: 499.0000
+Episode 1297	Average Score: 0.786	Score: 1.300	Steps: 499.0000
 ```
 ![DDPG][image5]
     
